@@ -1,0 +1,9 @@
+{
+  "name": "@jets/ujs-compat",
+  "version": "1.0.0",
+  "description": "UJS compat library with @rails/ujs library for Ruby on Jets and API Gateway ",
+  "main": "index.js",
+  "repository": "https://github.com/boltops-tools/jets-ujs-compat",
+  "author": "Tung Nguyen <tongueroo@gmail.com>",
+  "license": "MIT"
+}
