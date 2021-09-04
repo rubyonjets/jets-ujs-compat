@@ -1,4 +1,4 @@
-# @jets/ujs-compat
+# @rubyonjets/ujs-compat
 
 UJS compat library for Ruby on Jets and API Gateway.
 
@@ -40,7 +40,7 @@ To fix the issue, this javascript library adds click handlers that intercept `@r
 
 ## Usage
 
-    yarn add @jets/ujs-compat
+    yarn add @rubyonjets/ujs-compat
 
 And then add the Jets ujs-compat code below the Rails ujs code.
 
@@ -49,7 +49,7 @@ app/javascript/packs/application.js
 ```javascript
 import Rails from "@rails/ujs"
 Rails.start()
-import Jets from "@jets/ujs-compat"
+import Jets from "@rubyonjets/ujs-compat"
 Jets.start()
 ```
 

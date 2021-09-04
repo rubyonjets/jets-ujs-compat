@@ -1,5 +1,5 @@
 {
-  "name": "@jets/ujs-compat",
+  "name": "@rubyonjets/ujs-compat",
   "version": "1.0.0",
   "description": "UJS compat library with @rails/ujs library for Ruby on Jets and API Gateway ",
   "main": "index.js",
