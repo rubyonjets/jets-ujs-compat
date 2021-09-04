@@ -1,7 +1,8 @@
 // It handles the delete action in an unobstrusive way and with API Gatewway compatibility.
 
 (function() {
-  function handleAll(e) {
+  // link
+  function handleLink(e) {
     var target = $(e.target);
     if (target.is('a') && target.data("method") == "delete") {
       stopAll(e);
@@ -33,10 +34,14 @@
       dataType: "json"
     });
 
-    request.done(function(msg) {
-      var location = add_stage(msg.location);
-      window.location = location;
+    request.done(function(data) {
+      redirect_to(data.location);
     });
+  }
+
+  function redirect_to(url) {
+    var location = add_stage(url);
+    window.location = location;
   }
 
   function add_stage(url) {
@@ -56,12 +61,36 @@
     return false;
   }
 
+  // submit
+  function handleSubmit(e) {
+    var button = $(this);
+    var form = $(this).closest('form');
+    var url = form.attr('action');
+    var data = form.serialize();
+
+    $.ajax({
+      url: url,
+      type: 'delete',
+      data: data,
+      success: function(data) {
+        redirect_to(data.location);
+      }
+    });
+
+    stopAll(e);
+  }
+
   var Jets = {};
 
   Jets.start = function() {
     $(function() {
+      // links
       var linkClickSelector = 'a[data-confirm], a[data-method], a[data-remote]:not([disabled]), a[data-disable-with], a[data-disable]';
-      $(linkClickSelector).click(handleAll);
+      $(linkClickSelector).click(handleLink);
+
+      // buttons
+      var formInputClickSelector = 'form:not([data-turbo=true]) input[type=submit], form:not([data-turbo=true]) input[type=image], form:not([data-turbo=true]) button[type=submit], form:not([data-turbo=true]) button:not([type]), input[type=submit][form], input[type=image][form], button[type=submit][form], button[form]:not([type])';
+      $(formInputClickSelector).click(handleSubmit);
     });
   }
 
