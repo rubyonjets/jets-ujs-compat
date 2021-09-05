@@ -17,7 +17,7 @@ import Rails from "@rails/ujs"
 Rails.start()
 ```
 
-### How Rails UJS Works
+## How Rails UJS Works
 
 1. The `@rails/ujs` package registers click handlers to links with the `data-delete` attribute. Example: `<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/123">Destroy</a>`
 2. When the link is clicked, `@rails/ujs` creates a hidden form and submits the request as a `POST` request with a hidden field `_method=delete`.
