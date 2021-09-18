@@ -70,7 +70,7 @@
     var formArray = form.serializeArray();
     var formObject = objectifyForm(formArray);
 
-    if (formObject.method != "_delete") {
+    if (formObject._method != "delete") {
       return true;
     }
 
