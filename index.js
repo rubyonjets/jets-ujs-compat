@@ -4,22 +4,29 @@
   // link
   function handleLink(e) {
     var target = $(e.target);
+    if (!target.is('a')) {
+      target = target.parent('a');
+    }
+
     if (target.is('a') && target.data("method") == "delete") {
       stopAll(e);
-      return handleDelete(e);
+      return handleDelete(target);
     } else {
       return true;
     }
   }
 
-  function handleDelete(e) {
-    var link = $(e.target);
+  function handleDelete(target) {
+    var link = $(target);
+
     var message = link.data("confirm");
     if (message) {
       var sure = confirm(message);
       if (sure) {
         deleteItem(link);
       }
+    } else {
+      deleteItem(link);
     }
   }
 
