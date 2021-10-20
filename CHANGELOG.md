@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project *loosely tries* to adhere to [Semantic Versioning](http://semver.org/).
 
+## [1.0.4] - 2021-10-20
+- [#3](https://github.com/boltops-tools/jets-ujs-compat/pull/4) consider parent link also: handles a span tag structure
+
 ## [1.0.3] - 2021-09-18
 - [#3](https://github.com/boltops-tools/jets-ujs-compat/pull/3) fix handleSubmit
 
