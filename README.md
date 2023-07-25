@@ -47,11 +47,15 @@ And then add the Jets ujs-compat code below the Rails ujs code.
 app/javascript/packs/application.js
 
 ```javascript
-import Rails from "@rails/ujs"
-Rails.start()
+import jquery from 'jquery'
+window.$ = jquery
 import Jets from "@rubyonjets/ujs-compat"
 Jets.start()
 ```
+
+## Dependencies
+
+This package is dependencies on jquery. You should configure your own jquery.
 
 ## Thoughts and Considerations
 
