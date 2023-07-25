@@ -1,6 +1,6 @@
-// It handles the delete action in an unobstrusive way and with API Gatewway compatibility.
+// Handle the delete action in an unobstrusive way and with API Gatewway compatibility.
 
-(function() {
+const Jets = (function() {
   // link
   function handleLink(e) {
     var target = $(e.target);
@@ -124,6 +124,7 @@
     });
   }
 
-  module.exports = Jets;
+  return Jets;
 }).call(this);
 
+export default Jets;
