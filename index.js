@@ -1,6 +1,6 @@
-// It handles the delete action in an unobstrusive way and with API Gatewway compatibility.
+// Handle the delete action in an unobstrusive way and with API Gatewway compatibility.
 
-(function() {
+const Jets = (function() {
   // link
   function handleLink(e) {
     var target = $(e.target);
@@ -81,15 +81,23 @@
       return true;
     }
 
-    $.ajax({
-      url: url,
-      type: 'delete',
-      data: data,
-      success: function(data) {
-        redirect_to(data.location);
+    var message = data["confirm"];
+    if (message) {
+      var sure = confirm(message);
+      if (sure) {
+        $.ajax({
+          url: url,
+          type: 'delete',
+          data: data,
+          success: function(data) {
+            redirect_to(data.location);
+          }
+        });
+        stopAll(e);
+      } else {
+        return true;
       }
-    });
-    stopAll(e);
+    }
   }
 
   // https://stackoverflow.com/questions/1184624/convert-form-data-to-javascript-object-with-jquery
@@ -116,6 +124,7 @@
     });
   }
 
-  module.exports = Jets;
+  return Jets;
 }).call(this);
 
+export default Jets;
