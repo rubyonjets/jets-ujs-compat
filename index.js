@@ -56,7 +56,11 @@ const Jets = (function() {
     // only add stage if on lambda, not on cloud9, and url starts with /
     if (host.match(/\.amazonaws\.com/) && !host.match(/\.cloud9\./) && url[0] == '/') {
       var stage = window.location.pathname.split('/')[1];
-      return "/" + stage + url;
+      if (url.startsWith("/" + stage)) {
+        return url;
+      } else {
+        return "/" + stage + url;
+      }
     } else {
       return url;
     }
