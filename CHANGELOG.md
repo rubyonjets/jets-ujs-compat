@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project *loosely tries* to adhere to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2023-11-19
+- [#6](https://github.com/boltops-tools/jets-ujs-compat/pull/6) only prepend stage if not already prepended
+
 ## [1.1.0] - 2023-07-25
 - [#5](https://github.com/boltops-tools/jets-ujs-compat/pull/5) confirm before delete when there's a message and confirm before delete when there's a message and update export default Jets notation
 
